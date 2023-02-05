@@ -23,9 +23,8 @@ builder.Services.AddMassTransit(x =>
         //});
 
         cfg.Host("rabbitmq://guest:guest@localhost:5672");
-
-        //cfg.AddSerializer();
     });
+    
 });
 
 

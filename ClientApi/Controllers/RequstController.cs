@@ -18,13 +18,13 @@ namespace ClientApi.Controllers
         [HttpPost]
         public async Task Index()
         {
-            var products = new List<ProductRequest>();
+            var products = new List<Product>();
 
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 50; i++)
             {
-                products.Add(new ProductRequest { Id = i, ProductName = $"ProductName {i}", DateTime = DateTime.Now, Amount = 5 });
+                products.Add(new Product { Id = i, ProductName = $"ProductName {i}", DateTime = DateTime.Now, Amount = 5 });
 
-                await _publishEndpoint.Publish(new ProductRequest
+                await _publishEndpoint.Publish(new Product
                 {
                     Id = i,
                     ProductName = $"ProductName {i}",
