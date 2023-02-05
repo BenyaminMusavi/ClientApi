@@ -4,7 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 Console.WriteLine("Client Api");
 
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -14,14 +13,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMassTransit(x =>
 {
+    x.SetKebabCaseEndpointNameFormatter();
+
     x.UsingRabbitMq((context, cfg) =>
     {
-        //cfg.Host("localhost", "/", h =>
-        //{
-        //    h.Username("guest");
-        //    h.Password("guest");
-        //});
-
         cfg.Host("rabbitmq://guest:guest@localhost:5672");
     });
     
